@@ -1,0 +1,318 @@
+@import 'normalize';
+@import 'fonts';
+
+$wrapper-width : 940px;
+$wrapper-height : 495px;
+$nav-width : 356px;
+$content-width : $wrapper-width - $nav-width;
+
+body {
+    background-color: #1b7e5a;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    max-width: $wrapper-width;
+    width:100%;
+    overflow: auto;
+    background-color:white;
+    display:table;
+    nav {
+        display: table-cell;
+        width:$nav-width;
+        background-color:#232323;
+        color:white;
+        @media screen and (max-width: $wrapper-width){
+            width: 35%;
+        }
+        img {
+            vertical-align: top; // Get rid of 3px bottom margin
+            max-width:100%;
+        }
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            li {
+                height: 60px;
+                line-height: 60px;
+                border-bottom:1px solid #2e2e2e;
+                box-sizing: border-box;
+                font-family: 'source_sans_prolight';
+                font-size: 20px;
+                background-repeat: no-repeat;
+                background-position: 19px center;
+                &:last-child {
+                    border-bottom:0;
+                }
+                a {
+                    color:white;
+                    text-decoration: none;
+                    display: block;
+                    padding-left: 60px;
+                    box-sizing: border-box;
+                }
+                &.home {
+                    background-image: url('../img/home.png');
+                }
+                &.about {
+                    background-image: url('../img/about.png');
+                }
+                &.portfolio {
+                    background-image: url('../img/portfolio.png');
+                }
+                &.follow {
+                    background-image: url('../img/follow.png');
+                }
+                &.contact {
+                    background-image: url('../img/contact.png');
+                }
+            }  
+        }
+    }
+    
+    main {
+        display: table-cell;
+        width: $content-width;
+        vertical-align: top;
+        padding:30px;
+        box-sizing: border-box;
+        @media screen and (max-width: $wrapper-width){
+            width: 65%;
+        }
+        a,mark {
+            color: #21ba82;
+            text-decoration: none;
+            background-color: transparent;
+        }
+        h1 {
+            font-family:'source_sans_prosemibold';
+            font-size:30px;
+            font-weight: normal;
+            color:#e76e66;
+            margin:0;
+        }
+        h2, h3, h4, h5, h6 {
+            font-family:'source_sans_prolight';
+            font-weight: normal;
+            color:#383838;
+            margin:0;
+        }
+        h2 {font-size:30px;}
+        h3 {font-size:28px;}
+        h4 {font-size:26px;}
+        h5 {font-size:24px;}
+        h6 {font-size:22px;}
+        p {
+            color:#383838;
+            font-size:22px;
+            font-family:'source_sans_prolight';
+            text-align: justify;
+        }
+        hr {
+            color:#e1e1e1;
+            border:none;
+            border-top:1px solid #e1e1e1;
+            margin: 25px 0;
+        }
+        
+        .portfolio-list {
+            margin-right: -13px;
+            margin-left: -13px;
+            text-align: center;
+            overflow: hidden;
+            @media screen and (min-width: $wrapper-width+1) {
+                height: 308px;
+                overflow-y: scroll;
+                margin-right: -29px;
+            }
+            .portfolio-item {
+                overflow: auto;
+                background-color: #232323;
+                border:10px solid #232323;
+                width:100%;
+                max-width:137px;
+                display: inline-block;
+                margin:18px 13px;
+                text-align: left;
+                img {
+                    vertical-align: top; // Get rid of 3px bottom margin
+                    width:137px;
+                    height:109px;
+                    float:left;
+                }
+                h1, p {
+                    color:white;
+                }
+                /* NEEDS FIXINGS */
+                // @media (max-width: 896px){
+                //     &:last-child, &:nth-of-type(2n+2) {img{float:right;}}
+                // }
+                // @media (min-width: 896px){
+                //     &:last-child, &:nth-of-type(3n+3) {img{float:right;}}
+                // }
+                // h1, p {
+                //     color:white;
+                //     display:none;
+                // }
+                h1 {font-size: 16px;}
+                p {
+                    font-size:13px;
+                    text-align:left;
+                }
+                // &:hover {
+                //     max-width:320px;
+                //     margin-right: -170px;
+                //     position:relative;
+                //     img {margin-right:10px;}
+                //     h1,p {display:block;}
+                //     /* NEEDS FIXINGS */
+                //     @media (max-width: 896px){
+                //         &:last-child, &:nth-of-type(2n+2) {
+                //             img{margin-right:0;margin-left:10px;}
+                //             margin-left: -170px;
+                //             margin-right:13px;
+                //         }
+                //     }
+                //     @media (min-width: 896px){
+                //         &:last-child, &:nth-of-type(3n+3) {
+                //             img{margin-right:0;margin-left:10px;}
+                //             margin-left: -170px;
+                //             margin-right:13px; 
+                //         }
+                //     }
+                // }
+            }
+        }
+    }
+}
+
+/* 
+    773 and below
+    targeting: landscape cellphones, from nexus 6p
+ */
+ 
+ @media (max-width: 773px) and (min-width:551px) {
+     body {
+         background-color: white;
+     }
+     .middle{
+         display: block;
+         height:100%;
+     }
+     .inner {
+         height:100%;
+         nav {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+             img {
+                 display:none;
+             }
+         }
+
+         main {
+             .portfolio-list {
+                 .portfolio-item {
+                     border: 5px solid #232323;
+                     margin: 18px 9px;
+                     max-width: 126px;
+                    img {
+                        width:126px;
+                    }
+                 }
+             }
+         }
+     }
+ }
+
+
+/* 
+    550 and below
+    targeting: portrait cellphones
+ */
+
+@media (max-width: 550px) {
+    .outer {
+        display: block;
+        position:absolute;
+    }
+    .middle {
+        display:block;
+        height:100%;
+    }
+    .inner {
+        display: block;
+        width: 100%;
+        height:100%;
+        
+        nav {
+            width:100%;
+            display:block;
+            position:fixed;
+            bottom:0;
+            height:60px;
+            img {
+                display:none;
+            }
+            ul li {
+                display:inline-block;
+                background-position:center 7px;
+                width:20%;
+                border-bottom:0;
+                border-top:1px solid #2e2e2e;
+                border-right:1px solid #2e2e2e;
+                &:last-child {
+                    border:0;
+                }
+                a {
+                    padding:0;
+                    padding-top: 10px;
+                    text-align: center;
+                }
+            }
+        }
+        main {
+            padding-bottom:60px;
+        }
+    }
+}
+
+/* 
+    415 and below
+    targeting: small portrait cellphones
+    
+ */
+
+@media (max-width: 415px) {
+    .inner {
+        nav {
+            overflow-x: scroll;
+            overflow-y:hidden;
+            ul {
+                width:550px;
+            }
+        }
+        main {
+            .portfolio-list {
+                .portfolio-item {
+                    border: 5px solid #232323;
+                    margin: 18px 8px;
+                }
+            }
+        }
+    }
+}
